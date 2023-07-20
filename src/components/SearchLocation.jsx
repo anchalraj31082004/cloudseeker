@@ -3,7 +3,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { MyContext } from "../context/MyContext";
 
 const SearchLocation = () => {
-  const { apiData, inputHandler, outputHandler, getState, setTemp } =
+  const { apiData, inputHandler, outputHandler, getState, setTemp, currentTime } =
     useContext(MyContext);
 
   return (
@@ -22,7 +22,7 @@ const SearchLocation = () => {
             onClick={outputHandler}
           />
         </div>
-        <span className="text-xl font-bold">HH:MM:SS</span>
+        <span className="text-2xl font-medium">{currentTime.toLocaleTimeString()}</span>
       </div>
       <div className="flex justify-between mt-2 items-center">
         <h2 className="flex gap-2 items-baseline">
@@ -50,10 +50,10 @@ const SearchLocation = () => {
         </h2>
       </div>
       <div
-      style={{
-        background:
-          "linear-gradient(to right, #000000ab, #46494dba), url('https://images.unsplash.com/photo-1580193769210-b8d1c049a7d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHdlYXRoZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60')",
-      }}
+        style={{
+          background:
+            "linear-gradient(to right, #000000ab, #46494dba), url('https://images.unsplash.com/photo-1580193769210-b8d1c049a7d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHdlYXRoZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60')",
+        }}
         className="flex flex-col text-white ml-40 text-left rounded-xl max-h-[450px] max-w-[580px] gap-2 py-10 bg-cover bg-no-repeat bg-center text-lg font-medium"
       >
         <p className="flex justify-between px-16">
@@ -62,14 +62,14 @@ const SearchLocation = () => {
         </p>
         <p className="flex justify-between px-16">
           <span>Humidity :</span>
-          <span> {apiData?.main?.humidity}mi </span>
+          <span> {apiData?.main?.humidity} mi </span>
         </p>
         <p className="flex justify-between px-16">
           <span>Visibility :</span> <span>{apiData?.visibility}</span>
         </p>
         <p className="flex justify-between px-16">
           <span>Wind-speed :</span>
-          <span>{apiData?.wind?.speed}km/hr </span>
+          <span>{apiData?.wind?.speed} km/hr </span>
         </p>
       </div>
     </div>

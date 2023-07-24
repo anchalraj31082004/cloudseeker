@@ -11,7 +11,7 @@ const SearchLocation = () => {
       <div className="flex justify-evenly  items-center">
         <div className="flex gap-3 items-center">
           <input
-            className="px-20 py-3 rounded-full text-black text-2xl cursor-pointer accent-violet-500 active:bg-slate-200"
+            className="px-20 py-3 rounded-full text-black text-center text-2xl cursor-pointer accent-violet-500 active:bg-slate-200"
             type="text"
             placeholder="Search the city"
             value={getState}
@@ -52,9 +52,12 @@ const SearchLocation = () => {
       <div
         style={{
           background:
-            "linear-gradient(to right, #000000ab, #46494dba), url('https://images.unsplash.com/photo-1580193769210-b8d1c049a7d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHdlYXRoZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60')",
+            "linear-gradient(to right, #000000ab, #46494dba), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK2uUZvRa-nu67K1L_XtWyUipm09J-FuMs7w&usqp=CAU')",
+            backgroundRepeat:"no-repeat",
+            backgroundPosition:"center",
+            backgroundSize:"cover",
         }}
-        className="flex flex-col text-white ml-40 text-left rounded-xl max-h-[450px] max-w-[580px] gap-2 py-10 bg-cover bg-no-repeat bg-center text-lg font-medium"
+        className="flex flex-col text-white ml-40 text-left rounded-xl max-h-[450px] max-w-[580px] gap-2 py-10  text-lg font-medium"
       >
         <p className="flex justify-between px-16">
           <span>Pressure :</span>

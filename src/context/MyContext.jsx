@@ -49,6 +49,7 @@ export const ContextProvider = ({ children }) => {
   useEffect(() => {
     if(navigator.geolocation){
       navigator.geolocation.getCurrentPosition((geoData) => {
+        console.log(geoData);
         geoSearch(geoData.coords.latitude, geoData.coords.longitude);
         setPermission(true);
       })
@@ -59,7 +60,7 @@ export const ContextProvider = ({ children }) => {
     }
   },[]);
 
-  const geoSearch = async (lon , lat) => {
+  const geoSearch = async (lat , lon) => {
     const coordsData =await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${"e8b737e5e1224bcecaa9c60086e465f6"}`);
     const data = await coordsData.json();
     console.log(data);
@@ -79,6 +80,20 @@ export const ContextProvider = ({ children }) => {
     };
   })
 
+  //Date
+
+  let d = new Date();
+  let date = d.getDate();
+  let month = d.getMonth();
+  let year = d.getFullYear();
+  const currentDate = `${date} / ${month} / ${year}`
+
+  // const getDayName = (dateStr, locale) => {
+  //   var date = new Date(dateStr);
+  //   return date.toLocaleDateString(locale, {weekday:'long'});
+  // }
+
+
   const contextValue = {
     state,
     getState,
@@ -91,6 +106,7 @@ export const ContextProvider = ({ children }) => {
     currentWeather,
     permission,
     currentTime,
+    currentDate,
   };
 
   return (

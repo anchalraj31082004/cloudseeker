@@ -3,9 +3,9 @@ import { createContext, useEffect, useState } from "react";
 export const MyContext = createContext();
 
 export const ContextProvider = ({ children }) => {
-  const [state, setState] = useState("ranchi");
+  const [state, setState] = useState("Delhi");
   const [apiData, setApiData] = useState({});
-  const [getState, setGetState] = useState("ranchi");
+  const [getState, setGetState] = useState("Delhi");
 
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${state}&appid=${"e8b737e5e1224bcecaa9c60086e465f6"}`;
 

@@ -3,8 +3,14 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { MyContext } from "../context/MyContext";
 
 const SearchLocation = () => {
-  const { apiData, inputHandler, outputHandler, getState, setTemp, currentTime } =
-    useContext(MyContext);
+  const {
+    apiData,
+    inputHandler,
+    outputHandler,
+    getState,
+    setTemp,
+    currentTime,
+  } = useContext(MyContext);
 
   return (
     <div className="flex flex-col gap-5 mt-7 px-36">
@@ -22,7 +28,9 @@ const SearchLocation = () => {
             onClick={outputHandler}
           />
         </div>
-        <span className="text-2xl font-medium">{currentTime.toLocaleTimeString()}</span>
+        <span className="text-2xl font-medium">
+          {currentTime.toLocaleTimeString()}
+        </span>
       </div>
       <div className="flex justify-between mt-2 items-center">
         <h2 className="flex gap-2 items-baseline">
@@ -37,7 +45,7 @@ const SearchLocation = () => {
               apiData.weather && apiData.weather[0]?.icon
             }.png`}
             alt="weather status icon"
-            style={{ width: "90px" }}
+            style={{ width: "50px" }}
           />
           <div className="flex justify-center gap-3 items-baseline">
             <p className="text-6xl font-bold">
@@ -49,31 +57,24 @@ const SearchLocation = () => {
           </div>
         </h2>
       </div>
-      <div
-        style={{
-          background:
-            "linear-gradient(to right, #000000ab, #46494dba), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK2uUZvRa-nu67K1L_XtWyUipm09J-FuMs7w&usqp=CAU')",
-            backgroundRepeat:"no-repeat",
-            backgroundPosition:"center",
-            backgroundSize:"cover",
-        }}
-        className="flex flex-col text-white ml-40 text-left rounded-xl max-h-[450px] max-w-[580px] gap-2 py-10  text-lg font-medium"
-      >
-        <p className="flex justify-between px-16">
-          <span>Pressure :</span>
-          <span> {apiData?.main?.pressure} atm </span>{" "}
-        </p>
-        <p className="flex justify-between px-16">
-          <span>Humidity :</span>
-          <span> {apiData?.main?.humidity} mi </span>
-        </p>
-        <p className="flex justify-between px-16">
-          <span>Visibility :</span> <span>{apiData?.visibility}</span>
-        </p>
-        <p className="flex justify-between px-16">
-          <span>Wind-speed :</span>
-          <span>{apiData?.wind?.speed} km/hr </span>
-        </p>
+      <div className="ml-40 text-left rounded-xl max-h-[450px] max-w-[580px] bg-[url('https://images.unsplash.com/photo-1496945489086-0f4348ab1004?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjJ8fHdlYXRoZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60')] bg-cover bg-center text-lg font-medium">
+        <div className="flex flex-col gap-2  h-full w-full py-12  rounded-xl text-white">
+          <p className="flex justify-between px-16 ">
+            <span>Pressure :</span>
+            <span> {apiData?.main?.pressure} atm </span>{" "}
+          </p>
+          <p className="flex justify-between px-16">
+            <span>Humidity :</span>
+            <span> {apiData?.main?.humidity} mi </span>
+          </p>
+          <p className="flex justify-between px-16">
+            <span>Visibility :</span> <span>{apiData?.visibility}</span>
+          </p>
+          <p className="flex justify-between px-16">
+            <span>Wind-speed :</span>
+            <span>{apiData?.wind?.speed} km/hr </span>
+          </p>
+        </div>
       </div>
     </div>
   );

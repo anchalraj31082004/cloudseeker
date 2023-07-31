@@ -9,8 +9,9 @@ const CurrentLocation = () => {
     <>
     {
       permission=== false ? (
-        <div className='flex items-center justify-center h-44'>
-          <p className='text-3xl font-normal text-sky-500'> --- Geolocation not available ---</p>
+        <div className='flex flex-col items-center justify-center h-44'>
+          <p className='text-lg font-normal text-yellow-500'> --- Geolocation not available ---</p>
+          <p className='text-xs font-thin text-yellow-300'>allow your location for current weather information</p>
         </div>
       ) : (
         <div className="flex flex-col gap-8 px-48 py-4">

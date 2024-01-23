@@ -42,7 +42,6 @@ export const ContextProvider = ({ children }) => {
   };
 
   //current location
-
   const [currentWeather, setCurrentWeather] = useState({});
   const [permission, setPermission] = useState(false);
 
@@ -68,7 +67,6 @@ export const ContextProvider = ({ children }) => {
   }
 
   // current time
-
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
@@ -78,20 +76,19 @@ export const ContextProvider = ({ children }) => {
     return () => {
       clearInterval(TimeInterval);
     };
-  })
+  },[])
 
   //Date
-
   let d = new Date();
   let date = d.getDate();
-  let month = d.getMonth();
+  let month = d.getMonth() +1;
   let year = d.getFullYear();
-  const currentDate = `${date} / ${month} / ${year}`
 
-  // const getDayName = (dateStr, locale) => {
-  //   var date = new Date(dateStr);
-  //   return date.toLocaleDateString(locale, {weekday:'long'});
-  // }
+  date = (date < 10) ? '0' +date : date;
+  month = (month < 10) ? '0' +month : month;
+  
+
+  const currentDate = `${date} - ${month} - ${year}`
 
 
   const contextValue = {
